@@ -1,0 +1,52 @@
+---
+import '../../src/styles/global.css';
+import '../../src/styles/color-presets.css';
+import { 
+  getSectionComponent, 
+  validateSections, 
+  getDefaultSections,
+  type SectionDefinition 
+} from '../../src/theme-registry';
+
+export interface Props {
+  siteConfig: {
+    businessName: string;
+    themeId: string;
+    colorPreset: string;
+    logoUrl: string;
+    sections?: SectionDefinition[];
+  };
+}
+
+const { siteConfig } = Astro.props;
+
+// Get sections from config or use default fallback
+const rawSections = siteConfig.sections || getDefaultSections();
+const validatedSections = validateSections(rawSections);
+---
+
+<html lang="en" data-color={siteConfig.colorPreset || "default"}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{siteConfig.businessName} - Premium Salon & Spa</title>
+    <meta name="description" content={`Experience luxury and relaxation at ${siteConfig.businessName}, your premier salon and spa destination.`} />
+  </head>
+  <body class="bg-[var(--background)] text-[var(--text)]">
+    <div class="min-h-screen">
+      {validatedSections.map((section) => {
+        const SectionComponent = getSectionComponent(section.type);
+        if (!SectionComponent) return null;
+        
+        return (
+          <SectionComponent 
+            siteConfig={siteConfig} 
+            section={section} 
+          />
+        );
+      })}
+    </div>
+  </body>
+</html>

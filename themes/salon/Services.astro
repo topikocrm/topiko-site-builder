@@ -1,0 +1,85 @@
+---
+export interface Props {
+  siteConfig?: any;
+  section?: any;
+}
+
+const { siteConfig, section } = Astro.props;
+const sectionProps = section?.props || {};
+const limit = sectionProps.limit ?? 3;
+
+const allServices = [
+  {
+    name: "Hair Styling & Color",
+    description: "Expert cuts, coloring, and styling for all hair types. From classic looks to trendy transformations.",
+    price: "Starting at $85",
+    icon: "✂️"
+  },
+  {
+    name: "Facial Treatments",
+    description: "Rejuvenating facial treatments using premium skincare products for glowing, healthy skin.",
+    price: "Starting at $95",
+    icon: "✨"
+  },
+  {
+    name: "Massage Therapy",
+    description: "Relaxing full-body massages to relieve stress and rejuvenate your mind and body.",
+    price: "Starting at $120",
+    icon: "💆‍♀️"
+  },
+  {
+    name: "Manicure & Pedicure",
+    description: "Professional nail care services with premium polishes and relaxing treatments.",
+    price: "Starting at $65",
+    icon: "💅"
+  }
+];
+
+// Apply limit from section props
+const services = allServices.slice(0, limit);
+---
+
+<section class="py-16 px-4 bg-[color-mix(in_srgb,_var(--background)_95%,_var(--accent)_5%)]">
+  <div class="max-w-6xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-[var(--text)] mb-4">Our Services</h2>
+      <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+        Discover our range of premium beauty and wellness services, 
+        designed to help you look and feel your best.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid md:grid-cols-3 gap-8">
+      {services.map(service => (
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300">
+          <!-- Icon -->
+          <div class="w-16 h-16 bg-[color-mix(in_srgb,_var(--background)_90%,_var(--accent)_10%)] rounded-full flex items-center justify-center mb-6">
+            <span class="text-3xl">{service.icon}</span>
+          </div>
+          
+          <!-- Content -->
+          <h3 class="text-2xl font-bold text-[var(--text)] mb-4">{service.name}</h3>
+          <p class="text-gray-700 mb-6 leading-relaxed">{service.description}</p>
+          
+          <!-- Price and CTA -->
+          <div class="flex items-center justify-between">
+            <span class="text-[var(--primary)] font-semibold text-lg">{service.price}</span>
+            <button class="bg-[var(--primary)] hover:bg-[var(--secondary)] text-white px-6 py-2 rounded-lg font-medium transition duration-300">
+              Book Now
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="text-center mt-12">
+      <p class="text-gray-700 mb-6">Can't find what you're looking for?</p>
+      <button class="border-2 border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white px-8 py-3 rounded-lg font-semibold transition duration-300">
+        View All Services
+      </button>
+    </div>
+  </div>
+</section>

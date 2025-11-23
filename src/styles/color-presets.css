@@ -1,0 +1,55 @@
+/* Color Preset System for Topiko Themes */
+
+/* Default Preset */
+:root[data-color='default'] {
+  --primary: #6366f1;
+  --secondary: #4f46e5;
+  --accent: #818cf8;
+  --background: #ffffff;
+  --text: #111827;
+}
+
+/* Pink Preset - Salon Theme */
+:root[data-color='pink'] {
+  --primary: #ec4899;
+  --secondary: #db2777;
+  --accent: #f472b6;
+  --background: #fff1f2;
+  --text: #1f2937;
+}
+
+/* Blue Preset - Corporate/Professional */
+:root[data-color='blue'] {
+  --primary: #3b82f6;
+  --secondary: #2563eb;
+  --accent: #60a5fa;
+  --background: #eff6ff;
+  --text: #1e293b;
+}
+
+/* Green Preset - Health/Wellness */
+:root[data-color='green'] {
+  --primary: #10b981;
+  --secondary: #059669;
+  --accent: #34d399;
+  --background: #ecfdf5;
+  --text: #1f2937;
+}
+
+/* Purple Preset - Creative/Boutique */
+:root[data-color='purple'] {
+  --primary: #8b5cf6;
+  --secondary: #7c3aed;
+  --accent: #a78bfa;
+  --background: #f3f4f6;
+  --text: #374151;
+}
+
+/* Fallback for undefined presets */
+:root {
+  --primary: #6366f1;
+  --secondary: #4f46e5;
+  --accent: #818cf8;
+  --background: #ffffff;
+  --text: #111827;
+}

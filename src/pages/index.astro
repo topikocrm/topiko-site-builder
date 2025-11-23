@@ -1,16 +1,14 @@
 ---
+import fs from 'fs';
+import path from 'path';
 
+// Load siteConfig from JSON file
+const siteConfigPath = path.join(process.cwd(), 'data/sites/sample/siteConfig.json');
+const siteConfigContent = fs.readFileSync(siteConfigPath, 'utf-8');
+const siteConfig = JSON.parse(siteConfigContent);
+
+// Dynamically import the theme layout
+const Layout = await import(`../../themes/${siteConfig.themeId}/layout.astro`);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout.default siteConfig={siteConfig} />

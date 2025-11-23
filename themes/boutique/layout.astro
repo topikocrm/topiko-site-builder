@@ -1,0 +1,41 @@
+---
+export interface Props {
+  siteConfig: {
+    businessName: string;
+    themeId: string;
+    colorPreset: string;
+    logoUrl: string;
+  };
+}
+
+const { siteConfig } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{siteConfig.businessName} - Boutique</title>
+  </head>
+  <body class="bg-purple-50 text-gray-900">
+    <div class="min-h-screen">
+      <header class="bg-purple-600 text-white p-4">
+        <h1 class="text-2xl font-bold">{siteConfig.businessName}</h1>
+        <p class="text-sm">Boutique Theme - {siteConfig.themeId}</p>
+      </header>
+      
+      <main>
+        <div class="container mx-auto px-4 py-8">
+          <div class="placeholder-content bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">PLACEHOLDER - BOUTIQUE THEME LAYOUT</h2>
+            <p>Business: {siteConfig.businessName}</p>
+            <p>Color Preset: {siteConfig.colorPreset}</p>
+            <p>Logo: {siteConfig.logoUrl}</p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

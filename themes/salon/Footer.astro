@@ -1,0 +1,83 @@
+---
+export interface Props {
+  siteConfig: {
+    businessName: string;
+  };
+  section?: any;
+}
+
+const { siteConfig, section } = Astro.props;
+---
+
+<footer class="bg-[var(--secondary)] text-white py-12 px-4">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-4 gap-8">
+      <!-- Business Info -->
+      <div class="md:col-span-2">
+        <h3 class="text-2xl font-bold mb-4">{siteConfig.businessName}</h3>
+        <p class="text-[color-mix(in_srgb,_white_80%,_var(--accent)_20%)] mb-6 leading-relaxed">
+          Your premier destination for beauty and wellness. 
+          Experience luxury treatments in a relaxing atmosphere.
+        </p>
+        <div class="flex space-x-4">
+          <div class="w-10 h-10 bg-[color-mix(in_srgb,_var(--secondary)_80%,_black_20%)] rounded-full flex items-center justify-center hover:bg-[var(--accent)] cursor-pointer transition duration-300">
+            <span class="text-lg">📘</span>
+          </div>
+          <div class="w-10 h-10 bg-[color-mix(in_srgb,_var(--secondary)_80%,_black_20%)] rounded-full flex items-center justify-center hover:bg-[var(--accent)] cursor-pointer transition duration-300">
+            <span class="text-lg">📷</span>
+          </div>
+          <div class="w-10 h-10 bg-[color-mix(in_srgb,_var(--secondary)_80%,_black_20%)] rounded-full flex items-center justify-center hover:bg-[var(--accent)] cursor-pointer transition duration-300">
+            <span class="text-lg">🐦</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+        <div class="space-y-3 text-[color-mix(in_srgb,_white_80%,_var(--accent)_20%)]">
+          <div class="flex items-center">
+            <span class="mr-3">📍</span>
+            <span>123 Beauty Lane<br/>City, State 12345</span>
+          </div>
+          <div class="flex items-center">
+            <span class="mr-3">📞</span>
+            <span>(555) 123-4567</span>
+          </div>
+          <div class="flex items-center">
+            <span class="mr-3">✉️</span>
+            <span>hello@salon.com</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hours -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Hours</h4>
+        <div class="space-y-2 text-[color-mix(in_srgb,_white_80%,_var(--accent)_20%)]">
+          <div class="flex justify-between">
+            <span>Mon-Fri</span>
+            <span>9AM-7PM</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Saturday</span>
+            <span>9AM-6PM</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Sunday</span>
+            <span>10AM-5PM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-[color-mix(in_srgb,_var(--secondary)_80%,_black_20%)] mt-8 pt-8 text-center">
+      <p class="text-[color-mix(in_srgb,_white_80%,_var(--accent)_20%)]">
+        © 2024 {siteConfig.businessName}. All rights reserved. | 
+        <span class="hover:text-white cursor-pointer">Privacy Policy</span> | 
+        <span class="hover:text-white cursor-pointer">Terms of Service</span>
+      </p>
+    </div>
+  </div>
+</footer>

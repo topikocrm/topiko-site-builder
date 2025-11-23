@@ -1,0 +1,13 @@
+{
+  "businessName": "Sample Business",
+  "themeId": "salon",
+  "colorPreset": "pink",
+  "logoUrl": "/logo.png",
+  "sections": [
+    { "type": "hero" },
+    { "type": "about" },
+    { "type": "services", "props": { "limit": 5 } },
+    { "type": "gallery" },
+    { "type": "footer" }
+  ]
+}
