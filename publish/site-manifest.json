@@ -1,0 +1,6 @@
+{
+  "projectName": "topiko-site-builder",
+  "defaultDomainSuffix": ".pages.dev",
+  "deploymentMode": "manual-github-actions",
+  "buildDirectory": "dist"
+}
