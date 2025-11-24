@@ -1,0 +1,36 @@
+{
+  "businessName": "Demo Worker Test",
+  "logoUrl": "",
+  "themeId": "salon",
+  "colorPreset": "pink",
+  "hero": {
+    "title": "Welcome to Demo Bakery",
+    "subtitle": "Fresh - Local - Delicious"
+  },
+  "about": {
+    "heading": "About the Bakery",
+    "text": "Family owned bakery with freshly baked goods."
+  },
+  "services": [
+    {
+      "name": "Bread Loaf",
+      "description": "Signature sourdough",
+      "price": "₹120",
+      "image": ""
+    },
+    {
+      "name": "Cupcake",
+      "description": "Chocolate topped",
+      "price": "₹80",
+      "image": ""
+    }
+  ],
+  "gallery": [],
+  "sections": [
+    "hero",
+    "about",
+    "services",
+    "gallery",
+    "footer"
+  ]
+}
