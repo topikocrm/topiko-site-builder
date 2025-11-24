@@ -1,0 +1,11 @@
+name = "topiko-publish-worker"
+main = "src/index.js"
+compatibility_date = "2025-11-23"
+send_metrics = false
+
+[vars]
+GITHUB_OWNER = "topikocrm"
+GITHUB_REPO = "topiko-site-builder"
+
+[env.production]
+account_id = "89ae3a608d9bd84ce4408b267a72c7bb"
